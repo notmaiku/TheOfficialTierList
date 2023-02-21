@@ -1,0 +1,9 @@
+<!-- <app-add-tier (onAddTier)="addTier($event)"></app-add-tier> -->
+Rank: {{rank}}
+<app-tier-item 
+    class="bg-slate-700 p-2"
+    *ngFor="let tierItem of tier" 
+    [tier]="tierItem" 
+    (onDeleteTier)="deleteTier(tierItem)"
+    (onToggleReminder)="toggleReminder(tierItem)">
+</app-tier-item>
