@@ -1,9 +1,15 @@
 <!-- <app-add-tier (onAddTier)="addTier($event)"></app-add-tier> -->
-Rank: {{rank}}
+<div class="flex items-center justify-center w-28 h-28" 
+[ngStyle]="{'background': colors[i]}"
+>
+    <p class="text-black">Rank: {{rank}}</p>
+</div>
 <app-tier-item 
-    class="bg-slate-700 p-2"
+    class="bg-slate-700 p-2 flex"
     *ngFor="let tierItem of tier" 
     [tier]="tierItem" 
+    [color]="getItemGradient(tierItem.bg)"
     (onDeleteTier)="deleteTier(tierItem)"
-    (onToggleReminder)="toggleReminder(tierItem)">
+    >
 </app-tier-item>
+<!-- </div> -->

@@ -1,4 +1,4 @@
-<form *ngIf="showAddTier" class="add-form" (ngSubmit)="onSubmit()">
+<form *ngIf="showNewTier" class="add-form" (ngSubmit)="onSubmit()">
     <div class="form-control">
         <label for="text">Tier</label>
         <input type="text" name="text" [(ngModel)]="text"
@@ -6,11 +6,7 @@
     </div>
     <div class="form-control">
         <label for="text">Day & Time</label>
-        <input type="text" name="day" [(ngModel)]="day" id="day" placeholder="Add Day and Time">
-    </div>
-    <div class="form-control form-control-check">
-        <label for="reminder">Set Reminder</label>
-        <input type="checkbox" name="reminder" [(ngModel)]="reminder" id="reminder" placeholder="Add reminder">
+        <input type="text" name="day" [(ngModel)]="tier" id="day" placeholder="Add Day and Time">
     </div>
     <input type="submit" value="Save Tier" class="btn btn-block">
 </form>

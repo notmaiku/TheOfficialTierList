@@ -1,61 +1,74 @@
 {
-  "tiers": [
+  "bloonsTiers": [
     {
       "id": 1,
       "text": "Permanent Brew",
       "time": "9/13/2022",
-      "reminder": true,
-      "tier": "S"
+      "tier": "S",
+      "image": "./assets/i/500-Alchemist.webp",
+      "bg": "magic"
     },
     {
       "id": 2,
       "text": "Wizard Lord Phoenix",
       "time": "3/26/2022",
-      "reminder": false,
-      "tier": "C"
+      "tier": "C",
+      "image": "./assets/i/050-WizardMonkey.webp",
+      "bg": "magic"
     },
     {
       "id": 3,
-      "text":  "GrandMaster Ninja",
+      "text": "GrandMaster Ninja",
       "time": "12/26/2022",
-      "reminder": false,
-      "tier": "A"
+      "tier": "A",
+      "image": "./assets/i/500-NinjaMonkey.webp",
+      "bg": "magic"
     },
     {
       "id": 4,
       "text": "Super Maelstrom",
       "time": "6/9/2022",
-      "reminder": true,
-      "tier": "D"
+      "tier": "D",
+      "image": "./assets/i/050-TackShooter.webp",
+      "bg": "primary"
     },
     {
       "id": 6,
       "text": "Bloon Crush",
       "time": "12/21/2022",
-      "reminder": true,
-      "tier": "C"
+      "tier": "C",
+      "image": "./assets/i/500-BombShooter.webp",
+      "bg": "primary"
     },
     {
       "id": 7,
       "text": "Crossbow Master",
       "time": "5/3/2022",
-      "reminder": true,
-      "tier": "B"
+      "tier": "B",
+      "image": "./assets/i/005-DartMonkey.webp",
+      "bg": "primary"
     },
     {
       "id": 8,
-      "text": "Burny Stuff",
+      "text": "The Biggest One",
       "time": "9/2/2022",
-      "reminder": true,
-      "tier": "B"
+      "tier": "B",
+      "image": "./assets/i/500-MortarMonkey.webp",
+      "bg": "military"
     },
     {
       "id": 10,
       "text": "Monkeyopolis",
       "time": "7/20/2022",
-      "reminder": false,
-      "tier": "E"
-      
+      "tier": "E",
+      "image": "./assets/i/005-MonkeyVillage.webp",
+      "bg": "support"
     }
+  ],
+  "bloonsColors": [
+    {"name":"primary" ,"color":"sky"},
+    {"name":"military" ,"color":"green"},
+    {"name":"magic" ,"color":"purple"},
+    {"name":"support" ,"color": "yellow"}
   ]
 }

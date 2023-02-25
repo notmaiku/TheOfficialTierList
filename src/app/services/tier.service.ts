@@ -13,11 +13,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TierService {
-  private apiUrl = 'http://localhost:5000/tiers'
+  private apiUrl = 'http://localhost:5000/bloonsTiers'
   constructor(private http: HttpClient) { }
 
   getTiers(): Observable<Tier[]>{
-    const data = this.http.get<Tier[]>(this.apiUrl);
+    const data = this.http.get<Tier[]>(this.apiUrl).pipe()
     return data
   }
   deleteTiers(tier: Tier): Observable<Tier>{
@@ -26,9 +26,5 @@ export class TierService {
   }
   addTier(tier: Tier): Observable<Tier>{
     return this.http.post<Tier>(this.apiUrl, tier, httpOptions);
-  }
-  updateTierReminder(tier: Tier): Observable<Tier>{
-    const url = `${this.apiUrl}/${tier.id}`;
-    return this.http.put<Tier>(url, tier, httpOptions);
   }
 }

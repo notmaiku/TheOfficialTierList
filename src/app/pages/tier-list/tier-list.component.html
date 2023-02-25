@@ -1,5 +1,11 @@
-<div class="flex items-center justify-center">
-    <ul class="flex flex-col" >
-        <app-tiers *ngFor="let rank of tierList" [rank]="rank" class="flex p-2.5 justify-baseline items-center"></app-tiers>
+ <div class="flex items-center justify-center" *ngIf="tierPipe$ | async as tierData " >
+    <ul class="w-1/3"*ngIf="colorPipe$ | async as colorData"> 
+        <app-tiers *ngFor="let rank of tierList index as i" 
+            [i]="i" 
+            [rank]="rank" 
+            [colorData]="colorData"
+            [tierData]="tierData"
+            class="flex p-2.5 justify-baseline items-center">
+        </app-tiers>
     </ul>
-</div>
+</div> 
