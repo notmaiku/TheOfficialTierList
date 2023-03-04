@@ -1,8 +1,3 @@
-<!-- <div [ngClass]="{reminder :tier.reminder}" class="bg-slate-600 m-2 p-2 grid grid-col-2" (dblclick)="onToggle(tier)"> -->
-<div class="bg-slate-600 m-2 p-2 grid grid-col-2">
-    <p>{{tier.tier}}</p>
-    <h3>
-        {{tier.text}}
-    </h3>
-    <!-- <fa-icon [ngStyle]="{'color': 'red'}" [icon]="faTimes" (click)="onDelete(tiers)"> </fa-icon> -->
+<div class="my-6 grid grid-col-2 text-xs bg-gradient-to-r p-2  m-2" [ngStyle]="{'background-image':'linear-gradient(to right, '+color.start+', '+color.end+')'}" [attr.data-tooltip]="tier.text">
+    <img class="w-16 h-16"src="{{tier.image}}"/>
 </div>

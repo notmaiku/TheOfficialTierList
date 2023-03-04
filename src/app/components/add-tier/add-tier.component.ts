@@ -10,18 +10,17 @@ import { Subscription } from 'rxjs';
 })
 export class AddTierComponent implements OnInit{
   @Output() onAddTier: EventEmitter<Tier> = new EventEmitter;
-  text: string;;
-  day: string;
-  reminder: boolean = false;
-  showAddTier?: boolean;
+  text: string;
+  tier: string;
+  showNewTier?: boolean;
   subscription?: Subscription;
 
   constructor(private uiService: UiService){
     this.text = '';
-    this.day = '';
+    this.tier = '';
     this.subscription = this.uiService
     .onToggle()
-    .subscribe((v)=>(this.showAddTier = v));
+    .subscribe((v)=>(this.onAddTier = v));
   }
   
   ngOnInit(): void{}
@@ -34,15 +33,13 @@ export class AddTierComponent implements OnInit{
 
     const newTier = {
       text: this.text,
-      day: this.day,
-      reminder: this.reminder
+      tier: this.tier,
     };
 
     this.onAddTier.emit(newTier);
 
     this.text = '';
-    this.day = '';
-    this.reminder = false;
+    this.tier = '';
   }
 }
 
