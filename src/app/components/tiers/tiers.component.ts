@@ -12,25 +12,23 @@ import { TierColorService } from 'src/app/services/tier-color.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TiersComponent implements OnInit {
-// export class TiersComponent {
   @Input() rank!: String;
   @Input() i!: number;
   @Input() tierData!: Tier[];
   @Input() colorData!: Color[];
   tier: Tier[] = [];
   color!: Color;
-  colors: string[] = ['#e57373', '#ffb74d', '#fff176', '#aed581', '#81c784', '#483d8b']
+  colors: string[] = ['#e57373', '#ffb74d', '#fff176', '#aed581', '#81c784', '#887EC6']
  constructor(private tierService: TierService, private colorService: TierColorService) { }
 
  ngOnInit(): void {
   this.tier = this.tierData.filter((item)=>item.tier === this.rank)
 
  }
- getItemGradient(item: any): String{
+ getItemGradient(item: any): Color{
    let found = this.colorData.find((c)=> c.name === item)  
-   console.log('found',found, item)
-   if(found) return found.color
-   return 'black'
+   if(found) return found
+   return {name: 'default', start: 'transparent', end: 'transparent'} as Color
  }
  deleteTier(tier: Tier){
   this.tierService.deleteTiers(tier).subscribe((tier) => {

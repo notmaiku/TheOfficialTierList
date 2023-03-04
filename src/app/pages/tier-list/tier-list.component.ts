@@ -21,7 +21,6 @@ export class TierListComponent implements OnInit{
   tierPipe$ = this.tierStream$.pipe()
 
   ngOnInit(): void {
-      this.tierData.filter((t)=>t.bg === 'primary')
   }
 }
 

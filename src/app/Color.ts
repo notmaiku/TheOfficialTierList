@@ -1,4 +1,5 @@
 export interface Color{
     name: string;
-    color: string;
+    start: string;
+    end: string;
 }

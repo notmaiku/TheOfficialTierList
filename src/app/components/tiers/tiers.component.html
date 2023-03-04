@@ -1,15 +1,14 @@
-<!-- <app-add-tier (onAddTier)="addTier($event)"></app-add-tier> -->
-<div class="flex items-center justify-center w-28 h-28" 
+<div class="flex items-center justify-center self-stretch mr-2 w-28" 
 [ngStyle]="{'background': colors[i]}"
 >
-    <p class="text-black">Rank: {{rank}}</p>
+    <p class="text-black">{{rank}}</p>
 </div>
 <app-tier-item 
-    class="bg-slate-700 p-2 flex"
+    class="flex pl-2"
     *ngFor="let tierItem of tier" 
     [tier]="tierItem" 
     [color]="getItemGradient(tierItem.bg)"
     (onDeleteTier)="deleteTier(tierItem)"
     >
 </app-tier-item>
-<!-- </div> -->
+
