@@ -1,7 +1,7 @@
 export interface Tier {
     id?: number;
-    text: string;
+    title: string;
     tier: string;
     image?: string;
-    bg?: string;
+    kind?: string;
 }

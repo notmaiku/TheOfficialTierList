@@ -28,7 +28,7 @@ export class TierItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.colorList?.find((t) => t.name === this.tier.text) || undefined;
+    this.colorList?.find((t) => t.name === this.tier.title) || undefined;
     // this.colorStart = this.colorList
   }
   onDelete(Tier: Tier) {

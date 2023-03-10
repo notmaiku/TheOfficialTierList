@@ -21,6 +21,7 @@ export class TierListComponent implements OnInit{
   tierPipe$ = this.tierStream$.pipe()
 
   ngOnInit(): void {
+    this.colorData = [{name: 'primary', start: '#000000', end: '#000000'}]
   }
 }
 

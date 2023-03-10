@@ -16,7 +16,7 @@ export class TierColorService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = 'http://localhost:5000/bloonsColors'
+  private apiUrl = 'http://localhost:3000/colors'
   getTiers(): Observable<Color[]>{
     const data = this.http.get<Color[]>(this.apiUrl).pipe()
     return data
