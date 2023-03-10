@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TierService {
-  private apiUrl = 'http://localhost:5000/bloonsTiers'
+  private apiUrl = 'http://localhost:3000/tiers'
   constructor(private http: HttpClient) { }
 
   getTiers(): Observable<Tier[]>{
