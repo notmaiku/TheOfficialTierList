@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+     "build": "webpack --env production --env VERCEL_ENV=$VERCEL_ENV",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "server": "json-server --watch db.json --port 5000"
@@ -32,6 +32,7 @@
     "rxjs": "~7.8.0",
     "stream-http": "^3.2.0",
     "tslib": "^2.3.0",
+    "webpack": "^5.76.2",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {

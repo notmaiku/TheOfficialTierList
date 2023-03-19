@@ -15,7 +15,8 @@ const httpOptions = {
 })
 export class TierService {
   
-  private apiUrl = `${env.baseurl}/bloons/tiers`
+  // private apiUrl = `${env.baseurl}/bloons/tiers`
+  private apiUrl = `${process.env.BASEURL}/bloons/tiers`
   constructor(private http: HttpClient) { }
 
   getTiers(): Observable<Tier[]>{
