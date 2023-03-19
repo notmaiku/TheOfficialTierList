@@ -29,16 +29,9 @@
     "dotenv": "^16.0.3",
     "https-browserify": "^1.0.0",
     "json-server": "^0.17.1",
-    "node-polyfill-webpack-plugin": "^2.0.1",
-    "os-browserify": "^0.3.0",
-    "process": "^0.11.10",
     "rxjs": "~7.8.0",
-    "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "tslib": "^2.3.0",
-    "url": "^0.11.0",
-    "util": "^0.12.5",
-    "webpack": "^5.76.2",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
