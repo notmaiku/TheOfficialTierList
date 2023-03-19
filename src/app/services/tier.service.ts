@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Tier } from '../Tier'
 import { Observable} from 'rxjs';
 import {HttpClient, HttpHeaders } from '@angular/common/http'
+import {env} from '../../../env/enviroment'
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -13,7 +14,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TierService {
-  private apiUrl = 'http://localhost:3000/tiers'
+  
+  private apiUrl = `${env.baseurl}/bloons/tiers`
   constructor(private http: HttpClient) { }
 
   getTiers(): Observable<Tier[]>{
