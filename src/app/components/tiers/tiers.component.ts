@@ -4,6 +4,7 @@ import { Tier } from 'src/app/Tier';
 import { Color } from 'src/app/Color';
 import { map, switchMap } from 'rxjs'
 import { TierColorService } from 'src/app/services/tier-color.service';
+import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-tiers',
@@ -40,7 +41,14 @@ export class TiersComponent implements OnInit {
     this.tierService.addTier(tier).subscribe((tier) => (this.tier.push(tier)));
  }
 
-
+ drop(event: CdkDragDrop<Tier[]>){
+  transferArrayItem(
+    event.previousContainer.data,
+    event.container.data,
+    event.previousIndex,
+    event.currentIndex
+  );
 }
 
 
+}

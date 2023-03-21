@@ -9,6 +9,8 @@
     [tier]="tierItem" 
     [color]="getItemGradient(tierItem.kind)"
     (onDeleteTier)="deleteTier(tierItem)"
+    cdkDropList
+    [cdkDropListData]="tier"
+    (cdkDropListDropped)="drop($event)"
     >
 </app-tier-item>
-

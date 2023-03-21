@@ -13,6 +13,7 @@ import { TierItemComponent } from './components/tier-item/tier-item.component';
 import { AddTierComponent } from './components/add-tier/add-tier.component';
 import { AboutComponent } from './pages/about/about.component';
 import { TierListComponent } from './pages/tier-list/tier-list.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const appRoutes: Routes = [
   {path: '', component: TierListComponent},
@@ -28,13 +29,14 @@ const appRoutes: Routes = [
     TierItemComponent,
     AddTierComponent,
     AboutComponent,
-    TierListComponent
+    TierListComponent,
  ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
+    DragDropModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [],
