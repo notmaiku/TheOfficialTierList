@@ -5,6 +5,7 @@ import { Color } from 'src/app/Color';
 import { map, switchMap } from 'rxjs'
 import { TierColorService } from 'src/app/services/tier-color.service';
 import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
+import { container } from 'webpack';
 
 @Component({
   selector: 'app-tiers',
@@ -49,17 +50,14 @@ export class TiersComponent implements OnInit {
     event.previousIndex,
     event.currentIndex
   );
-  // console.log('data', event.container.data)
-  // console.log('currentIndex',event.previousContainer.data)
-  // console.log('event',event)
-  // this.reRank(event.container.data, item);
+  this.reRank(event.container.data, event.item.element.nativeElement.id);
 }
 
-// reRank(colDraggedTo: Tier[], movedTier: Tier){
-//   let newTier = colDraggedTo[0].tier;
-//   console.log(newTier)
-//   movedTier.tier = newTier;
-// }
+reRank(newContainer: Tier[],  title: String){
+  let newTier = newContainer[0].tier;
+  let itemIndex = newContainer.findIndex(item => item.title.trim() == title.trim());
+  newContainer[itemIndex].tier = newTier;
+}
 
 
 }

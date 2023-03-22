@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "webpack --env production --env VERCEL_ENV=$VERCEL_ENV",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "server": "json-server --watch db.json --port 5000"

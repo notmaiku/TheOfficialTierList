@@ -1,4 +1,5 @@
-<div class="my-6 grid grid-col-2 text-xs bg-gradient-to-r p-2  m-2 tier-item w-24 h-24"
+<div class="my-6 grid grid-col-2 text-xs bg-gradient-to-r p-2  m-2 tier-item w-20 h-20"
+    [id]="tier.title"
     [ngStyle]="{'background-image':'linear-gradient(to right, '+color.start+', '+color.end+')'}"
     [attr.data-tooltip]="tier.title" cdkDrag>
     <img src="{{tier.image}}" />
