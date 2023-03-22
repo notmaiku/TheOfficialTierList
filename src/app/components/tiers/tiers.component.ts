@@ -42,13 +42,24 @@ export class TiersComponent implements OnInit {
  }
 
  drop(event: CdkDragDrop<Tier[]>){
+//  drop(event: CdkDragDrop<Tier[]>, item: Tier){
   transferArrayItem(
     event.previousContainer.data,
     event.container.data,
     event.previousIndex,
     event.currentIndex
   );
+  // console.log('data', event.container.data)
+  // console.log('currentIndex',event.previousContainer.data)
+  // console.log('event',event)
+  // this.reRank(event.container.data, item);
 }
+
+// reRank(colDraggedTo: Tier[], movedTier: Tier){
+//   let newTier = colDraggedTo[0].tier;
+//   console.log(newTier)
+//   movedTier.tier = newTier;
+// }
 
 
 }
