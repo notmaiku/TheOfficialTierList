@@ -12,6 +12,7 @@ import { Tier } from 'src/app/Tier';
 })
 export class TierListComponent implements OnInit{
   tierList: String[] = ['S','A', 'B', 'C', 'D', 'E'];
+  tierChanged: Tier[] = [];
   public tierStream$ = this.tierService.getTiers()
   public colorStream$ = this.colorService.getTiers()
   colorData!: Color[];
@@ -23,5 +24,15 @@ export class TierListComponent implements OnInit{
   ngOnInit(): void {
     this.colorData = [{name: 'primary', start: '#000000', end: '#000000'}]
   }
+  onDropChange(event: Tier){
+    this.tierChanged.push(event);
+    console.log('tier that was dropped', event)
+  }
+  onSubmit(){
+    if(this.tierChanged.length === 0) return;
+    this.tierService.updateTiers(this.tierChanged).subscribe(() => console.log("Submitted!"));;
+  }
+
+  
 }
 

@@ -8,8 +8,6 @@ import {
 } from '@angular/core';
 import { Tier } from 'src/app/Tier';
 import { Color } from 'src/app/Color';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { of } from 'rxjs';
 
 @Component({
   selector: 'app-tier-item',

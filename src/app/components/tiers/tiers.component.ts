@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy  } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ChangeDetectionStrategy, Output, EventEmitter  } from '@angular/core';
 import { TierService } from 'src/app/services/tier.service';
 import { Tier } from 'src/app/Tier';
 import { Color } from 'src/app/Color';
@@ -14,6 +14,7 @@ import { container } from 'webpack';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TiersComponent implements OnInit {
+  @Output() onDropChange = new EventEmitter<Tier>();
   @Input() rank!: String;
   @Input() i!: number;
   @Input() tierData!: Tier[];
@@ -37,12 +38,11 @@ export class TiersComponent implements OnInit {
     this.tier = this.tier.filter( t => t.id !== tier.id);
   });
  }
-
  addTier(tier: Tier){
     this.tierService.addTier(tier).subscribe((tier) => (this.tier.push(tier)));
  }
-
  drop(event: CdkDragDrop<Tier[]>){
+  console.log('event at drop fn',event)
 //  drop(event: CdkDragDrop<Tier[]>, item: Tier){
   transferArrayItem(
     event.previousContainer.data,
@@ -50,13 +50,16 @@ export class TiersComponent implements OnInit {
     event.previousIndex,
     event.currentIndex
   );
-  this.reRank(event.container.data, event.item.element.nativeElement.id);
+  this.reRank(event.container.data, event.container.element.nativeElement.id ,event.item.element.nativeElement.id);
 }
-
-reRank(newContainer: Tier[],  title: String){
-  let newTier = newContainer[0].tier;
-  let itemIndex = newContainer.findIndex(item => item.title.trim() == title.trim());
-  newContainer[itemIndex].tier = newTier;
+reRank(newContainer: Tier[], newTier: String,  title: String){
+  console.log('new tier', newTier)
+  let tierItem = newContainer.findIndex(item => item.title.trim() == title.trim());
+  newContainer[tierItem].tier = newTier.toString();
+  this.emitDrop(newContainer[tierItem]);
+}
+emitDrop(droppedATier: Tier){
+  this.onDropChange.emit(droppedATier);
 }
 
 

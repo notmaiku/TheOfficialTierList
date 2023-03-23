@@ -5,6 +5,7 @@
         cdkDropList
         [cdkDropListData]="tier" 
         (cdkDropListDropped)="drop($event)"
+        [id]="rank.toString()"
 >
     <app-tier-item class="flex pl-2" *ngFor="let tierItem of tier;"  [tier]="tierItem"
         [color]="getItemGradient(tierItem.kind)" (onDeleteTier)="deleteTier(tierItem)" 

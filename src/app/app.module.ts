@@ -14,6 +14,8 @@ import { AddTierComponent } from './components/add-tier/add-tier.component';
 import { AboutComponent } from './pages/about/about.component';
 import { TierListComponent } from './pages/tier-list/tier-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { SubmitButtonComponent } from './components/submit-button/submit-button.component';
+import {MatButtonModule} from '@angular/material/button';
 
 const appRoutes: Routes = [
   {path: '', component: TierListComponent},
@@ -30,6 +32,7 @@ const appRoutes: Routes = [
     AddTierComponent,
     AboutComponent,
     TierListComponent,
+    SubmitButtonComponent,
  ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     DragDropModule,
+    MatButtonModule,
     RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [],
