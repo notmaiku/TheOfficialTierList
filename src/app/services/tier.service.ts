@@ -7,6 +7,7 @@ import {env} from '../../../env/enviroment'
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin':'*',
   }),
 };
 
