@@ -25,14 +25,11 @@ export class TierListComponent implements OnInit{
     this.colorData = [{name: 'primary', start: '#000000', end: '#000000'}]
   }
   onDropChange(event: Tier){
-    this.tierChanged.push(event);
-    console.log('tier that was dropped', event)
+    this.tierChanged = [...this.tierChanged, event]
   }
   onSubmit(){
     if(this.tierChanged.length === 0) return;
     this.tierService.updateTiers(this.tierChanged).subscribe(() => console.log("Submitted!"));;
   }
-
-  
 }
 

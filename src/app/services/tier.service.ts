@@ -6,8 +6,8 @@ import {env} from '../../../env/enviroment'
 
 const httpOptions = {
   headers: new HttpHeaders({
+    'Access-Control-Allow-Origin': "*",
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin':'*',
   }),
 };
 
@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class TierService {
   
-  private baseUrl = env.prod.baseurl;
+  private baseUrl = env.baseurl;
   private apiUrl = `${this.baseUrl}/bloons/tiers`;
   private updateMultipleUrl = `${this.baseUrl}/tiers/update`;
   constructor(private http: HttpClient) { }
@@ -33,7 +33,6 @@ export class TierService {
     return this.http.post<Tier>(this.apiUrl, tier, httpOptions);
   }
   updateTiers(tiers: Tier[]): Observable<Tier[]>{
-    console.log('submitted', tiers)
     return this.http.put<Tier[]>(this.updateMultipleUrl, tiers, httpOptions)
   }
 

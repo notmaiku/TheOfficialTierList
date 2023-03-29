@@ -1,14 +1,9 @@
 <div class="flex items-center justify-center self-stretch mr-2 w-28 rank-tile" [ngStyle]="{'background': colors[i]}">
     <p class="text-black">{{rank}}</p>
 </div>
-<ul class="flex flex-wrap"
-        cdkDropList
-        [cdkDropListData]="tier" 
-        (cdkDropListDropped)="drop($event)"
-        [id]="rank.toString()"
->
-    <app-tier-item class="flex pl-2" *ngFor="let tierItem of tier;"  [tier]="tierItem"
-        [color]="getItemGradient(tierItem.kind)" (onDeleteTier)="deleteTier(tierItem)" 
-        >
+<ul [id]="rank.toString()" class="flex flex-wrap" cdkDropList [cdkDropListData]="tier"
+    (cdkDropListDropped)="drop($event)" cdkDropListOrientation="horizontal">
+    <app-tier-item [id]="tierItem.title" class="flex pl-2 tier-item" *ngFor="let tierItem of tier;" [tier]="tierItem"
+        cdkDrag [color]="getItemGradient(tierItem.kind)" (onDeleteTier)="deleteTier(tierItem)">
     </app-tier-item>
 </ul>

@@ -12,12 +12,14 @@ export class AddTierComponent implements OnInit{
   @Output() onAddTier: EventEmitter<Tier> = new EventEmitter;
   title: string;
   tier: string;
+  column: number;
   showNewTier?: boolean;
   subscription?: Subscription;
 
   constructor(private uiService: UiService){
     this.title = '';
     this.tier = '';
+    this.column = 0; 
     this.subscription = this.uiService
     .onToggle()
     .subscribe((v)=>(this.onAddTier = v));
@@ -34,6 +36,7 @@ export class AddTierComponent implements OnInit{
     const newTier = {
       title: this.title,
       tier: this.tier,
+      column: this.column
     };
 
     this.onAddTier.emit(newTier);
