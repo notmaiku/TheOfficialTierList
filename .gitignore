@@ -17,7 +17,10 @@ yarn-error.log
 .classpath
 .c9/
 *.launch
+<<<<<<< HEAD
 *.env
+=======
+>>>>>>> main
 .settings/
 *.sublime-workspace
 
@@ -29,8 +32,11 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+<<<<<<< HEAD
 # env
 /env
+=======
+>>>>>>> main
 # Miscellaneous
 /.angular/cache
 .sass-cache/
