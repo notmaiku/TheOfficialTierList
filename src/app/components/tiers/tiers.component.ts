@@ -27,6 +27,7 @@ export class TiersComponent implements OnInit {
   @Input() i!: number;
   @Input() tierData!: Tier[];
   @Input() colorData!: Color[];
+  opacity: String = '1.0';
   tier: Tier[] = [];
   color!: Color;
   colors: string[] = [
@@ -96,4 +97,5 @@ export class TiersComponent implements OnInit {
       });
     });
   }
+
 }

@@ -18,8 +18,9 @@ import { Color } from 'src/app/Color';
 export class TierItemComponent implements OnInit {
   @Input() tier!: Tier;
   @Input() colorList?: Color[];
-  @Output() onDeleteTier: EventEmitter<Tier> = new EventEmitter();
+  @Input() opacity: String = '1.0';
   @Input() color!: Color;
+  @Output() onDeleteTier: EventEmitter<Tier> = new EventEmitter();
   colorStart!: String;
   colorEnd!: String;
 
@@ -31,5 +32,10 @@ export class TierItemComponent implements OnInit {
   }
   onDelete(Tier: Tier) {
     this.onDeleteTier.emit(Tier);
+  }
+  
+  dragged(status: boolean){
+    if (status) return this.opacity = '0.5';
+    return this.opacity = '1.0';
   }
 }

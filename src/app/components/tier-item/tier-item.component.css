@@ -52,16 +52,3 @@ div::after {
   border-top-color: var(--tooltip-color);
   transform-origin: top center;
 }
-
-.cdk-drop-list-dragging .cdk-drag {
-  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-}
-
-.cdk-drag-animating {
-  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
-}
-
-.tier-item{
-  width: 100px;
-  height: 100px;
-}
