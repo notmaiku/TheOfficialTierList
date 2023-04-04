@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+<div class="my-6 grid grid-col-2 text-xs bg-gradient-to-r p-2  m-2 tier-item"
+    (mousedown)="dragged(true)"
+    (mouseup)="dragged(false)"
+    [id]="tier.title"
+    [ngStyle]="{'background-image':'linear-gradient(to right, '+color.start+', '+color.end+')'}"
+    [style.opacity]="opacity"
+    [attr.data-tooltip]="tier.title">
+    <img src="{{tier.image}}" />
+=======
+<div class="my-6 grid grid-col-2 text-xs bg-gradient-to-r p-2  m-2" [ngStyle]="{'background-image':'linear-gradient(to right, '+color.start+', '+color.end+')'}" [attr.data-tooltip]="tier.title">
+    <img class="w-16 h-16"src="{{tier.image}}"/>
+>>>>>>> main
+</div>

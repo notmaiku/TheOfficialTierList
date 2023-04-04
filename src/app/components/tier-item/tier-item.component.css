@@ -1,0 +1,54 @@
+*, *::before, *::after {
+  box-sizing: border-box
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+div {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+div::before,
+div::after {
+  --scale: 0;
+
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+}
+
+div::before {
+  --translate-y: calc(-70% );
+
+  content: attr(data-tooltip);
+  color: white;
+  padding: .5rem;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: 100%;
+}
+
+div:hover::before,
+div:hover::after {
+  --scale: 1;
+}
+
+div::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+
+  content: '';
+  border-top-color: var(--tooltip-color);
+  transform-origin: top center;
+}
