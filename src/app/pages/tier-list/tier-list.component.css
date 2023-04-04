@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .tier-row:first-of-type{
     @apply border-2 border-slate-600;
 }
@@ -8,6 +7,3 @@
 .tier-row{
     @apply border-2 border-t-0 border-slate-600;
 }
-=======
-
->>>>>>> main
