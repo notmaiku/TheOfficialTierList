@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-<<<<<<< HEAD
 import { TiersComponent } from './tiers.component';
 import { TierService } from 'src/app/services/tier.service';
 import { Tier } from 'src/app/Tier';
@@ -73,27 +72,3 @@ describe('TiersComponent', () => {
     ];
     component.deleteTier(tierToDelete);
     expect(t
-=======
-
-import { SubmitButtonComponent } from './submit-button.component';
-
-describe('SubmitButtonComponent', () => {
-  let component: SubmitButtonComponent;
-  let fixture: ComponentFixture<SubmitButtonComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ SubmitButtonComponent ]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(SubmitButtonComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
->>>>>>> main
