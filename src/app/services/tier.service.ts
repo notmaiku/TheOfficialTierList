@@ -15,7 +15,6 @@ export class TierService {
   constructor(private http: HttpClient) { }
 
   getTiers(): Observable<Tier[]>{
-  console.log('base',this.baseUrl)
     const data = this.http.get<Tier[]>(this.apiUrl).pipe()
     return data
   }
