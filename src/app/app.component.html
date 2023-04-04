@@ -1,4 +1,14 @@
 <div class="text-stone-50">
+  <div *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+  <app-logout-button></app-logout-button>
+  <ul *ngIf="auth.user$ | async as user">
+    <li>{{ user.name }}</li>
+    <li>{{ user.email }}</li>
+  </ul>
+  </div>
+  <ng-template #loggedOut>
+    <app-login-button></app-login-button>
+  </ng-template>
   <app-header></app-header>
   <router-outlet></router-outlet>
 </div>
