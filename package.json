@@ -34,6 +34,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
+    "daisyui": "^2.51.5",
     "dotenv": "^16.0.3",
     "dotenv-webpack": "^8.0.1",
     "https-browserify": "^1.0.0",
