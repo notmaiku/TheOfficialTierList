@@ -3,10 +3,13 @@ import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-login-button',
-  templateUrl: './login-button.component.html',
-  styleUrls: ['./login-button.component.css']
+  template: `
+    <button (click)="auth.loginWithRedirect()" type="submit" class="btn">
+      Login
+    </button>
+  `,
+  styleUrls: ['./login-button.component.css'],
 })
 export class LoginButtonComponent {
-
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService) {}
 }

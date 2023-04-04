@@ -20,6 +20,7 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { env } from 'env/enviroment';
 import { LoginButtonComponent } from './components/login-button/login-button.component';
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   {path: '', component: TierListComponent},
@@ -39,6 +40,7 @@ const appRoutes: Routes = [
     SubmitButtonComponent,
     LoginButtonComponent,
     LogoutButtonComponent,
+    FooterComponent,
  ],
   imports: [
     BrowserModule,

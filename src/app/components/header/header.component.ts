@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UiService } from '../../services/ui.service';
 import { Subscription } from 'rxjs';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit{
   subscription!: Subscription;
   
   ngOnInit(): void { }
-  constructor(private uiService: UiService){
+  constructor(private uiService: UiService, public auth: AuthService){
     this.subscription = this.uiService
     .onToggle()
     .subscribe((v)=>(this.showAddTier = v));

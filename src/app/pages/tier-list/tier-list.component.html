@@ -1,4 +1,4 @@
-<app-submit-button class="w-full" [submitStatus]="submitStatus" (onClickedSubmit)="onSubmit()" />
+<app-submit-button *ngIf="auth.isAuthenticated$ | async" class="w-full" [submitStatus]="submitStatus" (onClickedSubmit)="onSubmit()" />
 <!-- <app-login-button></app-login-button> -->
 <div class="flex items-center justify-center" *ngIf="tierPipe$ | async as tierData ">
     <ul class="w-2/4" cdkDropListGroup>

@@ -4,6 +4,7 @@ import { TierColorService } from 'src/app/services/tier-color.service';
 import { map } from 'rxjs';
 import { Color } from 'src/app/Color';
 import { Tier } from 'src/app/Tier';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-tier-list',
@@ -19,7 +20,8 @@ export class TierListComponent implements OnInit {
   tierData!: Tier[];
   constructor(
     private tierService: TierService,
-    private colorService: TierColorService
+    private colorService: TierColorService,
+    public auth: AuthService
   ) {}
   colorPipe$ = this.colorStream$.pipe();
   tierPipe$ = this.tierStream$.pipe();
