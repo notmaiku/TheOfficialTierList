@@ -1,4 +1,13 @@
 <header>
-    <h1 class="text-center">{{title}}</h1>
+    
     <!-- <app-button color="{{showAddTier? 'red' : 'green'}}" text="{{showAddTier? 'close' : 'add'}}" (btnClick)="toggleAddTier()"></app-button> -->
+<div *ngIf="auth.isAuthenticated$ | async; else loggedOut" class="flex items-center space-x-4">
+  <app-logout-button></app-logout-button>
+  <ul *ngIf="auth.user$ | async as user">
+    <li>{{ user.name }}</li>
+  </ul>
+  </div>
+  <ng-template #loggedOut>
+    <app-login-button></app-login-button>
+  </ng-template>
 </header>

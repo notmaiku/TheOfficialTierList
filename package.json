@@ -25,6 +25,7 @@
     "@angular/platform-browser": "^15.2.5",
     "@angular/platform-browser-dynamic": "^15.2.5",
     "@angular/router": "^15.2.5",
+    "@auth0/auth0-angular": "^2.1.0",
     "@clerk/clerk-js": "^4.35.0",
     "@fortawesome/angular-fontawesome": "^0.12.1",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
@@ -33,6 +34,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
+    "daisyui": "^2.51.5",
     "dotenv": "^16.0.3",
     "dotenv-webpack": "^8.0.1",
     "https-browserify": "^1.0.0",
@@ -41,6 +43,7 @@
     "rxjs": "~7.8.0",
     "stream-http": "^3.2.0",
     "tslib": "^2.5.0",
+    "validator": "^13.9.0",
     "webpack": "^5.77.0",
     "yarn": "^1.22.19",
     "zone.js": "~0.13.0"

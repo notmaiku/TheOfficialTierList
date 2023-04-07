@@ -16,6 +16,12 @@ import { TierListComponent } from './pages/tier-list/tier-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { SubmitButtonComponent } from './components/submit-button/submit-button.component';
 import {MatButtonModule} from '@angular/material/button';
+import { AuthModule } from '@auth0/auth0-angular';
+import { env } from 'env/enviroment';
+import { LoginButtonComponent } from './components/login-button/login-button.component';
+import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 const appRoutes: Routes = [
   {path: '', component: TierListComponent},
@@ -33,6 +39,9 @@ const appRoutes: Routes = [
     AboutComponent,
     TierListComponent,
     SubmitButtonComponent,
+    LoginButtonComponent,
+    LogoutButtonComponent,
+    FooterComponent,
  ],
   imports: [
     BrowserModule,
@@ -41,9 +50,19 @@ const appRoutes: Routes = [
     FormsModule,
     DragDropModule,
     MatButtonModule,
+    AuthModule.forRoot({
+      domain: env.domain,
+      clientId: env.clientID,
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    }),
     RouterModule.forRoot(appRoutes, {enableTracing: true})
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+  }
+}

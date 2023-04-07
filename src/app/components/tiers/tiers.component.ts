@@ -13,7 +13,6 @@ import { Color } from 'src/app/Color';
 import { map, switchMap } from 'rxjs';
 import { TierColorService } from 'src/app/services/tier-color.service';
 import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
-import { container } from 'webpack';
 
 @Component({
   selector: 'app-tiers',

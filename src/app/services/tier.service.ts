@@ -3,6 +3,7 @@ import { Tier } from '../Tier'
 import { catchError, Observable, throwError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http'
 import {env} from '../../../env/enviroment'
+import { AuthService } from '@auth0/auth0-angular';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,8 +13,12 @@ export class TierService {
 
   private apiUrl = `${this.baseUrl}/bloons/tiers`;
   private updateMultipleUrl = `${this.baseUrl}/tiers/update`;
-  constructor(private http: HttpClient) { }
+  userId? = '';
+  constructor(private http: HttpClient, private auth: AuthService) { }
 
+  getUserId() {
+    this.auth.user$.subscribe((user)=>this.userId = user?.sub?.split("|")[1])
+  }
   getTiers(): Observable<Tier[]>{
     const data = this.http.get<Tier[]>(this.apiUrl).pipe()
     return data
