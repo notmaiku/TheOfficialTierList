@@ -22,6 +22,7 @@ import { LoginButtonComponent } from './components/login-button/login-button.com
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { FooterComponent } from './components/footer/footer.component';
 
+
 const appRoutes: Routes = [
   {path: '', component: TierListComponent},
   {path: 'about', component: AboutComponent}

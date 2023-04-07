@@ -1,8 +1,6 @@
 <app-submit-button *ngIf="auth.isAuthenticated$ | async" class="w-full" [submitStatus]="submitStatus" (onClickedSubmit)="onSubmit()" />
-<!-- <app-login-button></app-login-button> -->
 <div class="flex items-center justify-center" *ngIf="tierPipe$ | async as tierData ">
     <ul class="w-2/4" cdkDropListGroup>
-        <!-- <ul class="w-1/3"*ngIf="colorPipe$ | async as colorData">  -->
         <app-tiers *ngFor="let rank of tierList index as i" (onDropChange)="onDropChange($event)" [i]="i" [rank]="rank"
             [colorData]="colorData" [tierData]="tierData.sort()"
             class="flex justify-baseline items-center tier-row"

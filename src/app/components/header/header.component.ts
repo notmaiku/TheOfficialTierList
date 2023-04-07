@@ -12,7 +12,6 @@ export class HeaderComponent implements OnInit{
   title = 'The Official Tier List';
   showAddTier: boolean = false;
   subscription!: Subscription;
-  
   ngOnInit(): void { }
   constructor(private uiService: UiService, public auth: AuthService){
     this.subscription = this.uiService
