@@ -1,0 +1,12 @@
+<div *ngIf="user$ | async as u">
+    <div class="p-4">
+        <div class="avatar">
+            <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <img [src]="u.picture" />
+            </div>
+        </div>
+        <h2 class="text-xl">Hello {{u.name}}
+        </h2>
+        <a class="btn" [routerLink]="'/new/'">Create +</a>
+    </div>
+</div>

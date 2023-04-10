@@ -1,0 +1,12 @@
+<div *ngIf="userData.loggedIn; else login" class="p-4 flex justify-center">
+    <div class="form-control w-full max-w-xs">
+        <label class="label">
+            <span class="label-text">Tier list name</span>
+        </label>
+        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+        <button (click)="validateAndSubmit()" type="submit" class="btn">Make it happen!</button>
+    </div>
+</div>
+<ng-template #login>
+    <app-login-hero></app-login-hero>
+</ng-template>
