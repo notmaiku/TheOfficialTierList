@@ -8,6 +8,7 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   height: 100%;
+  position: relative;
 }
 
 *,
@@ -20,14 +21,13 @@ body {
   margin: 0;
   height: 100vh;
 }
- 
+
 app-root {
   order: 0;
   flex: 1 1 auto;
   align-self: auto;
   display: block;
 }
-
 
 body,
 h1,
@@ -57,6 +57,6 @@ img {
 
 @layer components {
   app-tiers {
-    @apply  bg-slate-700 border-solid border-slate-600;
+    @apply bg-slate-700 border-solid border-slate-600;
   }
 }
