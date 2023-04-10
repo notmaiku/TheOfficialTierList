@@ -24,6 +24,8 @@ import { LogoutButtonComponent } from './components/logout-button/logout-button.
 import { FooterComponent } from './components/footer/footer.component';
 import { UserComponent } from './pages/user/user.component';
 import { ListComponent } from './pages/list/list.component';
+import { NewComponent } from './pages/new/new.component';
+import { LoginHeroComponent } from './components/login-hero/login-hero.component';
 
 
 const appRoutes: Routes = [
@@ -31,6 +33,7 @@ const appRoutes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'user/:user_name', component: UserComponent},
   {path: 'tierlist/:list_id', component: ListComponent},
+  {path: 'new', component: NewComponent},
 ]
 
 @NgModule({
@@ -49,7 +52,9 @@ const appRoutes: Routes = [
     LogoutButtonComponent,
     FooterComponent,
     UserComponent,
-    ListComponent
+    ListComponent,
+    NewComponent,
+    LoginHeroComponent
  ],
   imports: [
     BrowserModule,

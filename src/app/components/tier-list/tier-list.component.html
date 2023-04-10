@@ -1,5 +1,5 @@
 <div *ngIf="userPipe$ | async as user">
-    <app-submit-button *ngIf="removeProv(user.userid) === userId" class="w-full" [submitStatus]="submitStatus"
+    <app-submit-button *ngIf="hasAccess(user.userId)" class="w-full" [submitStatus]="submitStatus"
         (onClickedSubmit)="onSubmit()" />
 </div>
 <div class="flex items-center justify-center">

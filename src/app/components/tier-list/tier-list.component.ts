@@ -7,6 +7,7 @@ import { Tier } from 'src/app/Tier';
 import { AuthService, User } from '@auth0/auth0-angular';
 import { env } from 'env/enviroment';
 import { UserService } from 'src/app/services/user.service';
+import { TiersComponent } from '../tiers/tiers.component';
 
 @Component({
   selector: 'app-tier-list',
@@ -24,7 +25,9 @@ export class TierListComponent implements OnInit {
   constructor(
     private colorService: TierColorService,
     private auth: AuthService,
-    private user: UserService
+    private user: UserService,
+    private tierService: TierService 
+
   ) {
   }
   submitStatus: String = '#C7C7C7';
@@ -37,8 +40,12 @@ export class TierListComponent implements OnInit {
     this.tierChanged = [...this.tierChanged, event];
     let unSaved = (this.submitStatus = '#f87171');
   }
-  onSubmit() {
+   onSubmit() {
     if (this.tierChanged.length === 0) return;
+    let submittedToServer = (this.submitStatus = '#facc15');
+    this.tierService
+      .updateTiers(this.tierChanged)
+      .subscribe(() => this.submitted());
   }
 
   submitted() {
@@ -52,5 +59,10 @@ export class TierListComponent implements OnInit {
   }
   removeProv(id: String){
     return id.split("|")[1]
+  }
+
+  hasAccess(id: String){
+    const curUser = this.removeProv(id)
+    return (this.userId === "all" ||this.userId === curUser ) ? true : false;
   }
 }

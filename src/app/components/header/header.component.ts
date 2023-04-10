@@ -27,14 +27,6 @@ export class HeaderComponent implements OnInit{
     })
   }
   
-  // getUserInfo(){
-  //   this.userP = String(localStorage.getItem('picture'));
-  //   this.userI = String(localStorage.getItem('uid'));
-  //   this.userN = String(localStorage.getItem('username'));
-  //   if(localStorage.getItem('uid')) return true;
-  //   return false;
-  // }
-
   toggleAddTier(){
     this.uiService.toggleAddTier();
   }

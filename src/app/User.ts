@@ -1,6 +1,6 @@
 export interface User {
-    loggedin?: boolean,
-    userid: string;
+    loggedIn?: boolean,
+    userId: string;
     name: string;
     picture: string;
 }

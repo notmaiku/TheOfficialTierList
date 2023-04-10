@@ -7,8 +7,8 @@ import { BehaviorSubject, Observable, Subject, of } from 'rxjs';
 })
 export class UserService {
   private source = new BehaviorSubject<User>({
-    loggedin: false,
-    userid: '',
+    loggedIn: false,
+    userId: '',
     picture: '',
     name: '',
   });
@@ -19,8 +19,8 @@ export class UserService {
   constructor() {
     if (localStorage.getItem('loggedin'))
       this.source.next({
-        loggedin: Boolean(localStorage.getItem('loggedin')),
-        userid: String(localStorage.getItem('uid')),
+        loggedIn: Boolean(localStorage.getItem('loggedin')),
+        userId: String(localStorage.getItem('uid')),
         name: String(localStorage.getItem('username')),
         picture: String(localStorage.getItem('picture')),
       });
@@ -34,8 +34,8 @@ export class UserService {
   next(user: User) {
     if (!user)
       this.source.next({
-        loggedin: Boolean(localStorage.getItem('loggedin')),
-        userid: String(localStorage.getItem('uid')),
+        loggedIn: Boolean(localStorage.getItem('loggedin')),
+        userId: String(localStorage.getItem('uid')),
         name: String(localStorage.getItem('username')),
         picture: String(localStorage.getItem('picture')),
       });
