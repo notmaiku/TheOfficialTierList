@@ -24,6 +24,7 @@ export class TierService {
     if(official) this.http.get<Tier[]>(`${this.baseUrl}/lists/${listId}`).pipe()
     return this.http.get<Tier[]>(`${this.baseUrl}/list/${listId}`).pipe()
   }
+  
   findByNameAndGame(name: String,game: String): Observable<Tier[]>{
     return this.http.get<Tier[]>(`${this.baseUrl}/lists/name/${name}/game/${game}`).pipe()
   }
