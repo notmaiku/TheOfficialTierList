@@ -1,4 +1,4 @@
-<div *ngIf="user$ | async as u">
+<div *ngIf="user$ | async as u" class="h-full">
     <div class="p-4">
         <div class="avatar">
             <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
@@ -8,5 +8,13 @@
         <h2 class="text-xl">Hello {{u.name}}
         </h2>
         <a class="btn" [routerLink]="'/new/'">Create +</a>
+    </div>
+    <div class="w-full h-full">
+        <div *ngIf="lists" class="grid grid-cols-3 w-full h-full">
+
+            <li *ngFor="let tierlist of lists; index as i;">
+                <app-card [listId]="tierlist.id"> </app-card>
+            </li>
+        </div>
     </div>
 </div>

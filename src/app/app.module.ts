@@ -26,6 +26,7 @@ import { UserComponent } from './pages/user/user.component';
 import { ListComponent } from './pages/list/list.component';
 import { NewComponent } from './pages/new/new.component';
 import { LoginHeroComponent } from './components/login-hero/login-hero.component';
+import { CardComponent } from './components/card/card.component';
 
 
 const appRoutes: Routes = [
@@ -54,7 +55,8 @@ const appRoutes: Routes = [
     UserComponent,
     ListComponent,
     NewComponent,
-    LoginHeroComponent
+    LoginHeroComponent,
+    CardComponent
  ],
   imports: [
     BrowserModule,
