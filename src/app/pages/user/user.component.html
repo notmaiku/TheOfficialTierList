@@ -11,10 +11,9 @@
     </div>
     <div class="w-full h-full">
         <div *ngIf="lists" class="grid grid-cols-3 w-full h-full">
-
-            <li *ngFor="let tierlist of lists; index as i;">
-                <app-card [listId]="tierlist.id"> </app-card>
-            </li>
+                <div *ngFor="let tierList of lists; index as i;">
+                    <app-card [title]="tierList.title" [listId]="unwrap(tierList.id)"> </app-card>
+                </div>
         </div>
     </div>
 </div>

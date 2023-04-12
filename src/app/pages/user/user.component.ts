@@ -23,7 +23,7 @@ export class UserComponent implements OnDestroy {
 
   constructor(private authService: AuthService, public user: UserService, private list: ListService) {
     this.subscription = this.list.getLists(false, this.unwrap(this.userId)).subscribe(
-      (data) => (this.lists = data)
+      (data) => {this.lists = data}
     );
   }
 

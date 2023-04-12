@@ -1,8 +1,8 @@
 <div class="card w-96 bg-base-100 shadow-xl">
     <div class="card-body flex items-center">
-      <h2 class="card-title">{{listId}}</h2>
+      <h2 class="card-title">{{title}}-{{listId}}</h2>
       <div class="card-actions justify-end">
-        <button class="btn btn-primary">go to tierlist</button>
+        <button class="btn btn-primary" [routerLink]="'/tierlist/'+listId">go to tierlist</button>
       </div>
     </div>
   </div>

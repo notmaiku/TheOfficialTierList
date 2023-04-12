@@ -38,6 +38,9 @@ export class TierService {
   updateTiers(tiers: Tier[]): Observable<Tier[]>{
     return this.http.put<Tier[]>(this.updateMultipleUrl, tiers)
   }
+  createTiers(tiers: Tier[]): Observable<Tier[]>{
+    return this.http.post<Tier[]>(`${this.baseUrl}/tiers/multiple`, tiers)
+  }
 
   private handleError(error: HttpErrorResponse) {
   if (error.status === 0) {

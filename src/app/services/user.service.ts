@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { User } from '../User';
-import { BehaviorSubject, Observable, Subject, of } from 'rxjs';
+import { BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +14,8 @@ export class UserService {
   });
   data$ = this.source.asObservable();
   loggedIn = true;
-
   dd: any;
+  #user = signal<User>();
   constructor() {
     if (localStorage.getItem('loggedin'))
       this.source.next({

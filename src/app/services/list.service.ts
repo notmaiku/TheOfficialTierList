@@ -18,6 +18,13 @@ export class ListService {
     if(official) this.http.get<List[]>(`${this.baseUrl}/lists/user/${userId}`).pipe()
     return this.http.get<List[]>(`${this.baseUrl}/lists/user/${userId}`).pipe()
   }
+
+  createOneList(list: List): Observable<List>{
+    return this.http.post<List>(`${this.baseUrl}/lists`, list);
+  }
+  getRowCount(): Observable<String>{
+    return this.http.get<String>(`${this.baseUrl}/rows`)
+  }
 }
 
 

@@ -3,8 +3,17 @@
         <label class="label">
             <span class="label-text">Tier list name</span>
         </label>
-        <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-        <button (click)="validateAndSubmit()" type="submit" class="btn">Make it happen!</button>
+        <input type="text" [(ngModel)]="title" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+        <label class="label">
+            <span class="label-text">Tier list genre or game</span>
+        </label>
+        <input type="text" [(ngModel)]="game" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+        <div *ngIf="!submitted; else redirect">
+            <button (click)="validateAndSubmit()" type="submit" class="btn">Make it happen!</button>
+        </div>
+        <ng-template #redirect>
+            <a [routerLink]="['/tierlist/'+newTotalRow]" class="btn">Go to the page!</a>
+        </ng-template>
     </div>
 </div>
 <ng-template #login>
