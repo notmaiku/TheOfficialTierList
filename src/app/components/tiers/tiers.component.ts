@@ -2,7 +2,6 @@ import {
   Component,
   OnInit,
   Input,
-  OnDestroy,
   ChangeDetectionStrategy,
   Output,
   EventEmitter,
@@ -10,9 +9,9 @@ import {
 import { TierService } from 'src/app/services/tier.service';
 import { Tier } from 'src/app/Tier';
 import { Color } from 'src/app/Color';
-import { map, switchMap } from 'rxjs';
 import { TierColorService } from 'src/app/services/tier-color.service';
 import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-tiers',
@@ -20,12 +19,13 @@ import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
   styleUrls: ['./tiers.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TiersComponent implements OnInit {
+export class TiersComponent implements OnInit  {
   @Output() onDropChange = new EventEmitter<Tier>();
   @Input() rank!: String;
   @Input() i!: number;
   @Input() tierData!: Tier[];
   @Input() colorData!: Color[];
+  deleteSub!: Subscription;
   opacity: String = '1.0';
   tier: Tier[] = [];
   color!: Color;
@@ -45,6 +45,7 @@ export class TiersComponent implements OnInit {
   ngOnInit(): void {
     this.tier = this.tierData.filter((item) => item.tier === this.rank);
   }
+
   getItemGradient(item: any): Color {
     let found = this.colorData.find((c) => c.name === item);
     if (found) return found;
@@ -53,11 +54,6 @@ export class TiersComponent implements OnInit {
       start: 'transparent',
       end: 'transparent',
     } as Color;
-  }
-  deleteTier(tier: Tier) {
-    this.tierService.deleteTiers(tier).subscribe((tier) => {
-      this.tier = this.tier.filter((t) => t.id !== tier.id);
-    });
   }
   addTier(tier: Tier) {
     this.tierService.addTier(tier).subscribe((tier) => this.tier.push(tier));

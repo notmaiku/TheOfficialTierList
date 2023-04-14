@@ -7,7 +7,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ButtonComponent } from './components/button/button.component';
 import { TierListComponent } from './components/tier-list/tier-list.component';
 import { TiersComponent } from './components/tiers/tiers.component';
 import { TierItemComponent } from './components/tier-item/tier-item.component';
@@ -27,6 +26,7 @@ import { ListComponent } from './pages/list/list.component';
 import { NewComponent } from './pages/new/new.component';
 import { LoginHeroComponent } from './components/login-hero/login-hero.component';
 import { CardComponent } from './components/card/card.component';
+import { DeleteButtonComponent } from './components/delete-button/delete-button.component';
 
 
 const appRoutes: Routes = [
@@ -41,7 +41,6 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    ButtonComponent,
     TierListComponent,
     TiersComponent,
     TierItemComponent,
@@ -56,7 +55,8 @@ const appRoutes: Routes = [
     ListComponent,
     NewComponent,
     LoginHeroComponent,
-    CardComponent
+    CardComponent,
+    DeleteButtonComponent,
  ],
   imports: [
     BrowserModule,

@@ -28,9 +28,9 @@ export class TierService {
   findByNameAndGame(name: String,game: String): Observable<Tier[]>{
     return this.http.get<Tier[]>(`${this.baseUrl}/lists/name/${name}/game/${game}`).pipe()
   }
-  deleteTiers(tier: Tier): Observable<Tier>{
-    const url = `${this.apiUrl}/${tier.id}`
-    return this.http.delete<Tier>(url);
+  deleteTiers(listId: String): Observable<string>{
+    const url = `${this.baseUrl}/tiers/list/${listId}`
+    return this.http.delete<string>(url);
   }
   addTier(tier: Tier): Observable<Tier>{
     return this.http.post<Tier>(this.apiUrl, tier);

@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-card',
@@ -8,4 +10,9 @@ import { Component, Input } from '@angular/core';
 export class CardComponent {
   @Input() listId!: Number;
   @Input() title!: String;
+  deleted: boolean = false;
+  makeDeleted(){
+    this.deleted = true;
+  }
+  
 }
