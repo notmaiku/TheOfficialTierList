@@ -3,7 +3,7 @@
     <div class="flex-1">
       <a class="btn btn-ghost normal-case text-xl" [routerLink]="['/']">TOTL</a>
     </div>
-    <div class="flex-none" *ngIf="user.getLoggedIn() | async; else loggedOut">
+    <div class="flex-none" *ngIf="data.loggedIn; else loggedOut">
       <div *ngIf="data as user" class="menu menu-horizontal px-1">
         <div class="dropdown dropdown-end">
           <label tabindex="0" class="btn btn-ghost btn-circle avatar">

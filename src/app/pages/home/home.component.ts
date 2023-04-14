@@ -4,9 +4,10 @@ import { TierColorService } from 'src/app/services/tier-color.service';
 import { Subscription } from 'rxjs';
 import { Color } from 'src/app/Color';
 import { Tier } from 'src/app/Tier';
-import { AuthService, User } from '@auth0/auth0-angular';
+import { AuthService } from '@auth0/auth0-angular';
 import { env } from 'env/enviroment';
 import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/User';
 
 @Component({
   selector: 'app-home',
@@ -49,32 +50,18 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.userName = claims['name'];
         this.id = claims['sub'];
         this.picture = claims['picture'];
-        this.user.next({
+        let userData: User = {
           loggedIn: true,
           userId: this.unwrap(this.id),
           name: this.unwrap(this.userName),
           picture: this.unwrap(this.picture),
-        });
-        localStorage.setItem('uid', this.id);
-        localStorage.setItem(
-          'username',
-          this.userName ? this.userName : 'no username'
-        );
-        localStorage.setItem(
-          'picture',
-          this.picture ? this.picture : 'no picture'
-        );
-        localStorage.setItem(
-          'loggedin',
-          this.authenticated ? String(this.authenticated) : 'false'
-        );
+        };
+        this.user.next(userData);
+        localStorage.setItem('user_local', JSON.stringify(userData));
       } else {
         this.authenticated = false;
         this.userName = '';
-        localStorage.removeItem('uid');
-        localStorage.removeItem('username');
-        localStorage.removeItem('picture');
-        localStorage.removeItem('loggedin');
+        localStorage.removeItem('user_local');
       }
     });
   }

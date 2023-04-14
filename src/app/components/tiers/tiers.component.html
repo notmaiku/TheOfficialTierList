@@ -5,6 +5,6 @@
     (cdkDropListDropped)="drop($event)" cdkDropListOrientation="horizontal">
     <div class="h-28"></div>
     <app-tier-item [id]="tierItem.title" class="flex pl-2 tier-item" *ngFor="let tierItem of tier;" [tier]="tierItem"
-        cdkDrag [color]="getItemGradient(tierItem.kind)" [opacity]="opacity" (onDeleteTier)="deleteTier(tierItem)">
+        cdkDrag [color]="getItemGradient(tierItem.kind)" [opacity]="opacity">
     </app-tier-item>
 </ul>

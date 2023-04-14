@@ -6,9 +6,8 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
   styleUrls: ['./submit-button.component.css']
 })
 export class SubmitButtonComponent {
-  @Output() onClickedSubmit: EventEmitter<any> = new EventEmitter();
   @Input() submitStatus: String = '#C7C7C7';
-
+  @Output() onClickedSubmit: EventEmitter<any> = new EventEmitter();
   clicked(){
     this.onClickedSubmit.emit();
   }

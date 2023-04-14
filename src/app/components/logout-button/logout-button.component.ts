@@ -15,9 +15,7 @@ export class LogoutButtonComponent {
     private user: UserService
   ) {}
   logout(): void {
-    localStorage.removeItem('uid');
-    localStorage.removeItem('username');
-    localStorage.removeItem('picture');
+    localStorage.removeItem('user_local');
     this.auth.logout({
       logoutParams: {
         returnTo: this.doc.location.origin,
