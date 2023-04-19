@@ -27,6 +27,7 @@ import { NewComponent } from './pages/new/new.component';
 import { LoginHeroComponent } from './components/login-hero/login-hero.component';
 import { CardComponent } from './components/card/card.component';
 import { DeleteButtonComponent } from './components/delete-button/delete-button.component';
+import { GraphQLModule } from './graphql.module';
 
 
 const appRoutes: Routes = [
@@ -72,7 +73,8 @@ const appRoutes: Routes = [
         redirect_uri: window.location.origin
       }
     }),
-    RouterModule.forRoot(appRoutes, {enableTracing: true})
+    RouterModule.forRoot(appRoutes, {enableTracing: true}),
+    GraphQLModule
   ],
   providers: [],
   bootstrap: [AppComponent]

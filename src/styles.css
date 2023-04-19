@@ -24,7 +24,7 @@ body {
 
 app-root {
   order: 0;
-  flex: 1 1 auto;
+  flex: 1 1 1;
   align-self: auto;
   display: block;
 }
