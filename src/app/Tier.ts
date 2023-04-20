@@ -3,10 +3,11 @@ export interface Tier {
     title: string;
     tier: string;
     column?: number;
-    image?: string;
-    kind?: string;
-    user_id: string;
+    image?: string | null |undefined;
     list_id?: string;
+    kind?: string;
+    userId?: string | null | undefined;
+    _typename?: "Tiers" | undefined;
 }
 
 

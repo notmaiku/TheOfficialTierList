@@ -13,7 +13,7 @@ export class AddTierComponent implements OnInit{
   title: string;
   tier: string;
   column: number;
-  user_id: string;
+  userId: string;
   list_id: string;
   showNewTier?: boolean;
   subscription?: Subscription;
@@ -22,7 +22,7 @@ export class AddTierComponent implements OnInit{
     this.title = '';
     this.tier = '';
     this.column = 0; 
-    this.user_id = '';
+    this.userId = '';
     this.list_id = '';
     this.subscription = this.uiService
     .onToggle()
@@ -41,7 +41,7 @@ export class AddTierComponent implements OnInit{
       title: this.title,
       tier: this.tier,
       column: this.column,
-      user_id: this.user_id,
+      userId: this.userId,
       list_id: this.list_id
     };
 

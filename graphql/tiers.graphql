@@ -1,0 +1,23 @@
+query Tiers {
+  getTiers {
+    title
+    image
+    game
+    tier
+    hori
+    userId
+    listId
+  }
+}
+
+query TiersByList($listId: Int!){
+    getAllTiers(listId: $listId){
+        title
+        image
+        game
+        tier
+        hori
+        userId
+        listId       
+    }
+}

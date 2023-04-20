@@ -66,7 +66,7 @@ export class NewComponent implements OnDestroy {
         .createOneList({
           title: String(this.title),
           game: this.unwrap(this.game),
-          user_id: this.unwrap(this.userData.userId.split('|')[1]),
+          userId: this.unwrap(this.userData.userId.split('|')[1]),
         })
         .subscribe();
       this.submitTiers = this.tierService.createTiers(this.tiers).subscribe();

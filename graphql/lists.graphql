@@ -1,0 +1,7 @@
+query Lists{
+  getLists{
+    id
+    title
+    userId
+  }
+}

@@ -1,6 +1,6 @@
 
 <div *ngIf="userPipe$ | async as user">
-    <div *ngIf="tierPipe$ | async as tierData">
+    <div *ngIf="tiers$ | async as tierData">
         <app-tier-list [tierData]="tierData" [userId]="userId"></app-tier-list>
     </div>
 </div>

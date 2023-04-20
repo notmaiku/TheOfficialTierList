@@ -10,10 +10,10 @@
         <a class="btn" [routerLink]="'/new/'">Create +</a>
     </div>
     <div class="w-full h-full">
-        <div *ngIf="lists" class="grid grid-cols-3 w-full h-full">
-                <div *ngFor="let tierList of lists; index as i;">
-                    <app-card [title]="tierList.title" [listId]="unwrap(tierList.id)"> </app-card>
-                </div>
+        <div *ngIf="lists$ | async as lists" class="grid grid-cols-3 w-full h-full">
+            <div *ngFor="let tierList of lists; index as i;">
+                <app-card [title]="unwrap(tierList.title)" [listId]="unwrap(tierList.id)"> </app-card>
+            </div>
         </div>
     </div>
 </div>

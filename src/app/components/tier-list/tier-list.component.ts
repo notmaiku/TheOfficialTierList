@@ -8,6 +8,7 @@ import { AuthService, User } from '@auth0/auth0-angular';
 import { env } from 'env/enviroment';
 import { UserService } from 'src/app/services/user.service';
 import { TiersComponent } from '../tiers/tiers.component';
+import { Tiers } from 'graphql/generated';
 
 @Component({
   selector: 'app-tier-list',
