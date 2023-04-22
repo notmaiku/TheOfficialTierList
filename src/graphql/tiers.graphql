@@ -12,6 +12,7 @@ query Tiers {
 
 query TiersByList($listId: Int!){
     getAllTiers(listId: $listId){
+        id
         title
         image
         game
@@ -19,5 +20,12 @@ query TiersByList($listId: Int!){
         hori
         userId
         listId       
+        role
     }
+}
+
+mutation TiersWithList($tiers: [TierInput!]!){
+  updateMultiTiers(input:$tiers){
+    rowsAffected
+  }
 }

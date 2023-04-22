@@ -8,47 +8,10 @@ import { Subscription } from 'rxjs';
   templateUrl: './add-tier.component.html',
   styleUrls: ['./add-tier.component.css']
 })
-export class AddTierComponent implements OnInit{
-  @Output() onAddTier: EventEmitter<Tier> = new EventEmitter;
-  title: string;
-  tier: string;
-  column: number;
-  userId: string;
-  list_id: string;
-  showNewTier?: boolean;
-  subscription?: Subscription;
+export class AddTierComponent{
 
   constructor(private uiService: UiService){
-    this.title = '';
-    this.tier = '';
-    this.column = 0; 
-    this.userId = '';
-    this.list_id = '';
-    this.subscription = this.uiService
-    .onToggle()
-    .subscribe((v)=>(this.onAddTier = v));
   }
   
-  ngOnInit(): void{}
-
-  onSubmit(){
-    if(!this.title) {
-      alert("Please add a tier") 
-      return
-    }
-
-    const newTier = {
-      title: this.title,
-      tier: this.tier,
-      column: this.column,
-      userId: this.userId,
-      list_id: this.list_id
-    };
-
-    this.onAddTier.emit(newTier);
-
-    this.title = '';
-    this.tier = '';
-  }
 }
 

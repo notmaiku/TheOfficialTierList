@@ -15,25 +15,6 @@ export type Scalars = {
   Float: number;
 };
 
-export type CreateTierInput = {
-  game: Scalars['String'];
-  hori?: InputMaybe<Scalars['Int']>;
-  id: Scalars['Int'];
-  image?: InputMaybe<Scalars['String']>;
-  kind?: InputMaybe<Scalars['String']>;
-  listId?: InputMaybe<Scalars['Int']>;
-  role?: InputMaybe<Scalars['String']>;
-  tier: Scalars['String'];
-  title: Scalars['String'];
-  userId?: InputMaybe<Scalars['String']>;
-};
-
-export type DeleteResult = {
-  __typename?: 'DeleteResult';
-  rowsAffected: Scalars['Int'];
-  success: Scalars['Boolean'];
-};
-
 export type Lists = {
   __typename?: 'Lists';
   game?: Maybe<Scalars['String']>;
@@ -42,20 +23,32 @@ export type Lists = {
   userId?: Maybe<Scalars['String']>;
 };
 
+export type MultiResult = {
+  __typename?: 'MultiResult';
+  rowsAffected: Scalars['Int'];
+  success: Scalars['Boolean'];
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   createTiers: Tiers;
-  deleteTiers: DeleteResult;
+  deleteTiers: MultiResult;
+  updateMultiTiers: MultiResult;
 };
 
 
 export type MutationCreateTiersArgs = {
-  input: CreateTierInput;
+  input: TierInput;
 };
 
 
 export type MutationDeleteTiersArgs = {
   id: Scalars['Int'];
+};
+
+
+export type MutationUpdateMultiTiersArgs = {
+  input: Array<TierInput>;
 };
 
 export type Query = {
@@ -80,6 +73,19 @@ export type QueryGetListArgs = {
 
 export type QueryGetTierArgs = {
   id: Scalars['Int'];
+};
+
+export type TierInput = {
+  game: Scalars['String'];
+  hori?: InputMaybe<Scalars['Int']>;
+  id: Scalars['Int'];
+  image?: InputMaybe<Scalars['String']>;
+  kind?: InputMaybe<Scalars['String']>;
+  listId?: InputMaybe<Scalars['Int']>;
+  role?: InputMaybe<Scalars['String']>;
+  tier: Scalars['String'];
+  title: Scalars['String'];
+  userId?: InputMaybe<Scalars['String']>;
 };
 
 export type Tiers = {
@@ -111,7 +117,14 @@ export type TiersByListQueryVariables = Exact<{
 }>;
 
 
-export type TiersByListQuery = { __typename?: 'Query', getAllTiers: Array<{ __typename?: 'Tiers', title: string, image?: string | null, game: string, tier: string, hori?: number | null, userId?: string | null, listId?: number | null }> };
+export type TiersByListQuery = { __typename?: 'Query', getAllTiers: Array<{ __typename?: 'Tiers', id: number, title: string, image?: string | null, game: string, tier: string, hori?: number | null, userId?: string | null, listId?: number | null, role?: string | null }> };
+
+export type TiersWithListMutationVariables = Exact<{
+  tiers: Array<TierInput> | TierInput;
+}>;
+
+
+export type TiersWithListMutation = { __typename?: 'Mutation', updateMultiTiers: { __typename?: 'MultiResult', rowsAffected: number } };
 
 export const ListsDocument = gql`
     query Lists {
@@ -160,6 +173,7 @@ export const TiersDocument = gql`
 export const TiersByListDocument = gql`
     query TiersByList($listId: Int!) {
   getAllTiers(listId: $listId) {
+    id
     title
     image
     game
@@ -167,6 +181,7 @@ export const TiersByListDocument = gql`
     hori
     userId
     listId
+    role
   }
 }
     `;
@@ -176,6 +191,24 @@ export const TiersByListDocument = gql`
   })
   export class TiersByListGQL extends Apollo.Query<TiersByListQuery, TiersByListQueryVariables> {
     override document = TiersByListDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const TiersWithListDocument = gql`
+    mutation TiersWithList($tiers: [TierInput!]!) {
+  updateMultiTiers(input: $tiers) {
+    rowsAffected
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class TiersWithListGQL extends Apollo.Mutation<TiersWithListMutation, TiersWithListMutationVariables> {
+    override document = TiersWithListDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);
