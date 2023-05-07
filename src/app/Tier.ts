@@ -6,7 +6,7 @@ export interface Tier {
     game : string;
     image?: string | null |undefined;
     list_id?: string;
-    kind?: string;
+    kind?: string | null;
     userId?: string | null | undefined;
 }
 

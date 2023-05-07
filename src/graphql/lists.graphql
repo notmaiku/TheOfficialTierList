@@ -5,3 +5,17 @@ query Lists{
     userId
   }
 }
+
+
+
+mutation deleteList($id: Int!){
+  deleteList(id: $id){
+    rowsAffected
+  }
+}
+
+mutation createList($listInput: ListInput!){
+  createList(input: $listInput){
+    title
+   }
+}

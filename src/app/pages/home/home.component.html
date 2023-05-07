@@ -1,10 +1,8 @@
-<ng-template *ngIf="tiers$ | async as tiers; else backEndDown">
-    <div *ngIf="userPipe$ | async as user">
-        <div>
+<div *ngIf="(tiers$ | async) ?? []">
+        <div *ngIf="tiers$ | async as tiers">
             <app-tier-list [tierData]="tiers" [userId]="tierUserId"></app-tier-list>
         </div>
-    </div>
-</ng-template>
+</div>
 <ng-template #backEndDown>
     Sorry, my backend server free tier expired, and will be up again beginning of next month.
 </ng-template>

@@ -1,11 +1,5 @@
 query Tiers {
-  getTiers {
-    title
-    image
-    game
-    tier
-    hori
-    userId
+  getTiers{
     listId
   }
 }
@@ -19,7 +13,7 @@ query TiersByList($listId: Int!){
         tier
         hori
         userId
-        listId       
+        listId
         role
     }
 }
@@ -27,5 +21,20 @@ query TiersByList($listId: Int!){
 mutation TiersWithList($tiers: [TierInput!]!){
   updateMultiTiers(input:$tiers){
     rowsAffected
+    success
   }
 }
+
+mutation CreateTiersWithID($tiers: [TierInput!]!){
+  createTiers(input: $tiers){
+   rowsAffected
+    success
+  }
+}
+
+mutation DeleteTiersWithList($id: Int!){
+  deleteTiers(id: $id){
+    rowsAffected
+  }
+}
+

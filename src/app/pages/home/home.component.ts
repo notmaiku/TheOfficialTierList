@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   onDropChange(event: Tier) {
     this.tierChanged = [...this.tierChanged, event];
-    let unSaved = (this.submitStatus = '#f87171');
+    this.submitStatus = '#f87171';
   }
   onSubmit() {
     if (this.tierChanged.length === 0) return;

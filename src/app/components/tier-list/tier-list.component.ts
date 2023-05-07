@@ -27,10 +27,7 @@ export class TierListComponent implements OnInit {
   $tiersInput!: Observable<TiersWithListMutation['updateMultiTiers']>
 
   constructor(
-    private colorService: TierColorService,
-    private auth: AuthService,
     private user: UserService,
-    private tierService: TierService, 
     private tiersMutGQL: TiersWithListGQL
   ) {
   }
