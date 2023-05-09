@@ -1,4 +1,4 @@
-const prod = false;
+const prod = true;
 export const env = {
     baseurl: prod ? process.env['SERVER_URL'] : process.env['LOCAL_URL'],
     domain: process.env['DOMAIN'] ? process.env['DOMAIN'] : '',

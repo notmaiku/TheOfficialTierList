@@ -96,6 +96,11 @@ export type QueryGetListArgs = {
 };
 
 
+export type QueryGetListsArgs = {
+  userId: Scalars['String'];
+};
+
+
 export type QueryGetTierArgs = {
   id: Scalars['Int'];
 };
@@ -127,7 +132,9 @@ export type Tiers = {
   userId?: Maybe<Scalars['String']>;
 };
 
-export type ListsQueryVariables = Exact<{ [key: string]: never; }>;
+export type ListsQueryVariables = Exact<{
+  userId: Scalars['String'];
+}>;
 
 
 export type ListsQuery = { __typename?: 'Query', getLists: Array<{ __typename?: 'Lists', id: number, title?: string | null, userId?: string | null }> };
@@ -180,8 +187,8 @@ export type DeleteTiersWithListMutationVariables = Exact<{
 export type DeleteTiersWithListMutation = { __typename?: 'Mutation', deleteTiers: { __typename?: 'MultiResult', rowsAffected: number } };
 
 export const ListsDocument = gql`
-    query Lists {
-  getLists {
+    query Lists($userId: String!) {
+  getLists(userId: $userId) {
     id
     title
     userId

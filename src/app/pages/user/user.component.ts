@@ -42,7 +42,7 @@ export class UserComponent implements OnInit, OnDestroy {
     // });
   }
   ngOnInit(): void {
-    this.lists$ = this.listGql.watch().valueChanges.pipe(map((result) => result.data.getLists))
+    this.lists$ = this.listGql.watch({userId: this.userId}).valueChanges.pipe(map((result) => result.data.getLists))
   }
   unwrap(val: any): any {
     return val ? val : 'undefined';

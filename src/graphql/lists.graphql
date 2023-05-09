@@ -1,5 +1,5 @@
-query Lists{
-  getLists{
+query Lists($userId: String!){
+  getLists(userId: $userId){
     id
     title
     userId
@@ -16,6 +16,6 @@ mutation deleteList($id: Int!){
 
 mutation createList($listInput: ListInput!){
   createList(input: $listInput){
-    title
+    id
    }
 }
