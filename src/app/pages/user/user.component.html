@@ -9,7 +9,7 @@
     <a class="btn" [routerLink]="'/new/'">Create +</a>
     <div class="w-full h-full">
         <div *ngIf="lists$ | async as lists" class="flex">
-            <div *ngFor="let tierList of lists; index as i;" class="p-4">
+            <div *ngFor="let tierList of lists; index as i;" class="px-4">
                 <app-card [title]="unwrap(tierList.title)" [listId]="unwrap(tierList.id)"> </app-card>
             </div>
         </div>
