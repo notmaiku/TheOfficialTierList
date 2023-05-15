@@ -74,7 +74,10 @@ export class TiersComponent implements OnInit  {
   }
   reRank(newContainer: Tier[], oldContainer: Tier[], newId: number, newContainerRank: string) {
     let dropIndex = newContainer.findIndex((t,index) => index === newId)
-    newContainer[dropIndex].tier = newContainerRank;
+    let refToOldVal = newContainer[dropIndex]
+    let updatedTier = {...refToOldVal,tier: newContainerRank}
+    newContainer.splice(dropIndex,1)
+    newContainer.push(updatedTier)
     this.recordChangedColumnIndexes([
       oldContainer,
       newContainer
@@ -87,7 +90,7 @@ export class TiersComponent implements OnInit  {
   recordChangedColumnIndexes(containers: Tier[][]) {
     containers.forEach((container) => {
       container.forEach((tier, index) => {
-        tier.column = index;
+        tier = {...tier,hori: index}
         this.emitDrop(tier);
       });
     });

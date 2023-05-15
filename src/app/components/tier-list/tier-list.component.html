@@ -2,10 +2,10 @@
     <app-submit-button *ngIf="hasAccess(user.userId)" class="w-full" [submitStatus]="submitStatus"
         (onClickedSubmit)="onSubmit()" />
 </div>
-<div class="flex items-center justify-center">
+<div class="flex items-center justify-center h-fit dark:bg-slate-800 pt-7 pb-28">
     <ul class="w-2/4" cdkDropListGroup>
         <app-tiers *ngFor="let rank of tierList index as i" (onDropChange)="onDropChange($event)" [i]="i" [rank]="rank"
-            [colorData]="colorData" [tierData]="tierData.sort()" class="flex justify-baseline items-center tier-row">
+            [colorData]="colorData" [tierData]="tierData" class="flex justify-baseline items-center tier-row">
         </app-tiers>
     </ul>
 </div>

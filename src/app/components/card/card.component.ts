@@ -1,6 +1,4 @@
-import { Component, Input, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { UserService } from 'src/app/services/user.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -8,11 +6,11 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent {
-  @Input() listId!: Number;
+  @Input() listId!: number;
   @Input() title!: String;
   deleted: boolean = false;
   makeDeleted(){
     this.deleted = true;
   }
-  
+
 }

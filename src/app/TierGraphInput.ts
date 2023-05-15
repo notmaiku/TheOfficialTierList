@@ -1,12 +1,10 @@
-export interface Tier {
-    id: number ;
+export interface TierGraphInput {
     title: string;
     tier: string;
-    hori?: number | null | undefined;
-    game : string;
+    column?: number;
     image?: string | null |undefined;
     list_id?: string;
-    kind?: string | null;
+    kind?: string;
     userId?: string | null | undefined;
 }
 

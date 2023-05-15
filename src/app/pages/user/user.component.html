@@ -1,19 +1,17 @@
-<div *ngIf="user$ | async as u" class="h-full">
-    <div class="p-4">
-        <div class="avatar">
-            <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img [src]="u.picture" />
-            </div>
+<div *ngIf="user$ | async as u">
+    <div class="avatar">
+        <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <img [src]="u.picture" />
         </div>
-        <h2 class="text-xl">Hello {{u.name}}
-        </h2>
-        <a class="btn" [routerLink]="'/new/'">Create +</a>
     </div>
+    <h2 class="text-xl">Hello {{u.name}}
+    </h2>
+    <a class="btn" [routerLink]="'/new/'">Create +</a>
     <div class="w-full h-full">
-        <div *ngIf="lists" class="grid grid-cols-3 w-full h-full">
-                <div *ngFor="let tierList of lists; index as i;">
-                    <app-card [title]="tierList.title" [listId]="unwrap(tierList.id)"> </app-card>
-                </div>
+        <div *ngIf="lists$ | async as lists" class="flex">
+            <div *ngFor="let tierList of lists; index as i;" class="px-4">
+                <app-card [title]="unwrap(tierList.title)" [listId]="unwrap(tierList.id)"> </app-card>
+            </div>
         </div>
     </div>
 </div>

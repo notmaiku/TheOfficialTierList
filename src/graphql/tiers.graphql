@@ -1,0 +1,40 @@
+query Tiers {
+  getTiers{
+    listId
+  }
+}
+
+query TiersByList($listId: Int!){
+    getAllTiers(listId: $listId){
+        id
+        title
+        image
+        game
+        tier
+        hori
+        userId
+        listId
+        role
+    }
+}
+
+mutation TiersWithList($tiers: [TierInput!]!){
+  updateMultiTiers(input:$tiers){
+    rowsAffected
+    success
+  }
+}
+
+mutation CreateTiersWithID($tiers: [TierInput!]!){
+  createTiers(input: $tiers){
+   rowsAffected
+    success
+  }
+}
+
+mutation DeleteTiersWithList($id: Int!){
+  deleteTiers(id: $id){
+    rowsAffected
+  }
+}
+

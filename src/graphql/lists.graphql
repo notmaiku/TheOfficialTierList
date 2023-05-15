@@ -1,0 +1,21 @@
+query Lists($userId: String!){
+  getLists(userId: $userId){
+    id
+    title
+    userId
+  }
+}
+
+
+
+mutation deleteList($id: Int!){
+  deleteList(id: $id){
+    rowsAffected
+  }
+}
+
+mutation createList($listInput: ListInput!){
+  createList(input: $listInput){
+    id
+   }
+}

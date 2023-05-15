@@ -8,6 +8,9 @@ import { AuthService, User } from '@auth0/auth0-angular';
 import { env } from 'env/enviroment';
 import { UserService } from 'src/app/services/user.service';
 import { TiersComponent } from '../tiers/tiers.component';
+import { TierInput, Tiers, TiersWithListGQL, TiersWithListMutation, TiersWithListMutationVariables } from 'graphql/generated';
+import { Observable } from '@apollo/client/utilities';
+import { TierGraphInput } from 'src/app/TierGraphInput';
 
 @Component({
   selector: 'app-tier-list',
@@ -21,13 +24,11 @@ export class TierListComponent implements OnInit {
   tierChanged: Tier[] = [];
   colorData!: Color[];
   userPipe$ = this.user.getUserInfo().pipe();
+  $tiersInput!: Observable<TiersWithListMutation['updateMultiTiers']>
 
   constructor(
-    private colorService: TierColorService,
-    private auth: AuthService,
     private user: UserService,
-    private tierService: TierService 
-
+    private tiersMutGQL: TiersWithListGQL
   ) {
   }
   submitStatus: String = '#C7C7C7';
@@ -43,9 +44,8 @@ export class TierListComponent implements OnInit {
    onSubmit() {
     if (this.tierChanged.length === 0) return;
     let submittedToServer = (this.submitStatus = '#facc15');
-    this.tierService
-      .updateTiers(this.tierChanged)
-      .subscribe(() => this.submitted());
+    let tierInput: TierInput[] = this.tierChanged
+    this.tiersMutGQL.mutate({tiers: tierInput}).pipe().subscribe( () => this.submitted())
   }
 
   submitted() {

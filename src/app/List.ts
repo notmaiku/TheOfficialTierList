@@ -1,6 +1,6 @@
 export interface List {
     id?: number;
     title: string;
-    user_id: string;
+    userId: string;
     game: string;
 }
