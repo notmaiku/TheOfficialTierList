@@ -9,7 +9,7 @@ import { HttpHeaders } from '@angular/common/http';
 const uri = env.baseurl
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
-    link: httpLink.create({uri, withCredentials: true}),
+    link: httpLink.create({uri }),
     cache: new InMemoryCache({
         addTypename: false
     }),

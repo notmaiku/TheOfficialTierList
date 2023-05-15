@@ -41,8 +41,6 @@ export class NewComponent implements OnDestroy {
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-    // this.submitLists.unsubscribe();
-    // this.submitTiers.unsubscribe();
   }
   async validateAndSubmit() {
     if (this.title.length > 0 && this.game.length > 0 && this.tiers) {
